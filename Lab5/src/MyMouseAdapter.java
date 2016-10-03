@@ -100,7 +100,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							}
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							myPanel.repaint();
-							System.out.println("hello");
+							
 						}
 					}
 				}
