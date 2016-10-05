@@ -6,7 +6,7 @@ public class Main {
 		myFrame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		myFrame.setResizable(false);// Impedir que usuario habra la pantalla
 		
-		myFrame.setLocationRelativeTo(null); 
+		
 		myFrame.setSize(400, 400);
 
 		MyPanel myPanel = new MyPanel();
@@ -14,7 +14,8 @@ public class Main {
 
 		MyMouseAdapter myMouseAdapter = new MyMouseAdapter();
 		myFrame.addMouseListener(myMouseAdapter);
-
+		
+		myFrame.setLocationRelativeTo(null); 
 		myFrame.setVisible(true);
 	}
 }

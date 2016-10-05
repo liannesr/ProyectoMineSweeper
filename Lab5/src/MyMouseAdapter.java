@@ -3,13 +3,12 @@ import java.awt.Component;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.Random;
+
 
 import javax.swing.JFrame;
 
 public class MyMouseAdapter extends MouseAdapter {
-	private Random generator = new Random();
-	public void mousePressed(MouseEvent e) {
+		public void mousePressed(MouseEvent e) {
 		switch (e.getButton()) {
 		case 1:		//Left mouse button
 			Component c = e.getComponent();
@@ -78,10 +77,11 @@ public class MyMouseAdapter extends MouseAdapter {
 						//Released the mouse button on the same cell where it was pressed
 						
 							//On the grid other than on the left column and on the top row:
-						if(myPanel.booleanArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==false){
+						if(myPanel.booleanArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==false ){
 							Color newColor =Color.LIGHT_GRAY;
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
-							System.out.println("IM CLEAR");
+							
+							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
 							myPanel.repaint();
 						}
 						else{
