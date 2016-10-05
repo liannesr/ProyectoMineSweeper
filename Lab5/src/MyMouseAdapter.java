@@ -83,6 +83,7 @@ public class MyMouseAdapter extends MouseAdapter {
 							
 							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
 							myPanel.repaint();
+							//aloh
 						}
 						else{
 							Color newColor =Color.BLACK;

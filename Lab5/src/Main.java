@@ -15,6 +15,7 @@ public class Main {
 		MyMouseAdapter myMouseAdapter = new MyMouseAdapter();
 		myFrame.addMouseListener(myMouseAdapter);
 		
+		
 		myFrame.setLocationRelativeTo(null); 
 		myFrame.setVisible(true);
 	}
