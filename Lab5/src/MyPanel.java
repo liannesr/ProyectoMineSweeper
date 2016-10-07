@@ -18,13 +18,13 @@ public class MyPanel extends JPanel {
 	public int mouseDownGridY = 0;
 	public Color[][] colorArray = new Color[TOTAL_COLUMNS][TOTAL_ROWS];
 
-	//
+	//---------- added
 	public int mines = 0;
 	public Random booleanDecider = new Random();
 	public static boolean[][] booleanArray = new boolean[TOTAL_COLUMNS][TOTAL_ROWS];
 	public static int[][] numbersArray = new int[TOTAL_COLUMNS][TOTAL_ROWS];
 	//---------- added
-	//
+	
 
 	public MyPanel() {   //This is the constructor... this code runs first to initialize
 		
@@ -41,7 +41,7 @@ public class MyPanel extends JPanel {
 		for (int x = 0; x < TOTAL_COLUMNS; x++) {   //The rest of the grid
 			for (int y = 0; y < TOTAL_ROWS; y++) {
 				colorArray[x][y] = Color.WHITE;
-				/////------------- added
+				//--------------- added
 				if (mines<10){
 					switch(booleanDecider.nextInt(8)){
 					case 0:
@@ -50,15 +50,13 @@ public class MyPanel extends JPanel {
 					case 1:
 						booleanArray[x][y]= true;//There is a mine
 						mines++;
-
 						break;
 					}
 				}
 				else{
 					booleanArray[x][y] = false;
 				}
-
-				//----------------added
+				//--------------- added
 			}
 		}
 	}

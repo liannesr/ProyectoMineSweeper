@@ -7,7 +7,9 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 
-public class MyMouseAdapter extends MouseAdapter {
+public class MyMouseAdapter extends MouseAdapter {	
+	
+	
 		public void mousePressed(MouseEvent e) {
 		switch (e.getButton()) {
 		case 1:		//Left mouse button
@@ -62,6 +64,12 @@ public class MyMouseAdapter extends MouseAdapter {
 			myPanel.y = y;
 			int gridX = myPanel.getGridX(x, y);
 			int gridY = myPanel.getGridY(x, y);
+			
+			//---------- (For Testing Purposes)
+			System.out.println("gridX = " + gridX);
+			System.out.println("gridY = " + gridY);
+			//---------- (For Testing Purposes)
+			
 			if ((myPanel.mouseDownGridX == -1) || (myPanel.mouseDownGridY == -1)) {
 				//Had pressed outside
 				//Do nothing
@@ -77,18 +85,30 @@ public class MyMouseAdapter extends MouseAdapter {
 						//Released the mouse button on the same cell where it was pressed
 						
 							//On the grid other than on the left column and on the top row:
-						if(myPanel.booleanArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==false ){
+						if(myPanel.booleanArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]){
+							//Changed this because Professor doesn't want this: booleanArray[i][j]==true
+							
+//							Color newColor =Color.LIGHT_GRAY;
+//							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
+
+//							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
+//							myPanel.repaint();
+							
+							Color newColor =Color.BLACK;
+							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
+							System.out.println("BOMBA");
+							myPanel.repaint();
+						}
+						else{
+//							Color newColor =Color.BLACK;
+//							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
+//							System.out.println("BOMBA");
+//							myPanel.repaint();
+							
 							Color newColor =Color.LIGHT_GRAY;
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							
 							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
-							myPanel.repaint();
-							//aloh
-						}
-						else{
-							Color newColor =Color.BLACK;
-							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
-							System.out.println("BOMBA");
 							myPanel.repaint();
 						}
 							
