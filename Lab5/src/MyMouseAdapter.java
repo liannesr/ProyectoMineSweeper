@@ -8,7 +8,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 
 public class MyMouseAdapter extends MouseAdapter {
-		public void mousePressed(MouseEvent e) {
+	public void mousePressed(MouseEvent e) {
 		switch (e.getButton()) {
 		case 1:		//Left mouse button
 			Component c = e.getComponent();
@@ -75,12 +75,12 @@ public class MyMouseAdapter extends MouseAdapter {
 						//Do nothing
 					} else {
 						//Released the mouse button on the same cell where it was pressed
-						
-							//On the grid other than on the left column and on the top row:
+
+						//On the grid other than on the left column and on the top row:
 						if(myPanel.booleanArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]==false ){
 							Color newColor =Color.LIGHT_GRAY;
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
-							
+
 							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
 							myPanel.repaint();
 							//aloh
@@ -91,9 +91,9 @@ public class MyMouseAdapter extends MouseAdapter {
 							System.out.println("BOMBA");
 							myPanel.repaint();
 						}
-							
-							
-						
+
+
+
 					}
 				}
 			}
@@ -101,7 +101,7 @@ public class MyMouseAdapter extends MouseAdapter {
 			break;
 		case 3:		//Right mouse button
 			//Do nothing
-			
+
 			break;
 		default:    //Some other button (2 = Middle mouse button, etc.)
 			//Do nothing

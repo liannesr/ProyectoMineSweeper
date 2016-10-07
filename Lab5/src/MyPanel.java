@@ -27,7 +27,7 @@ public class MyPanel extends JPanel {
 	//
 
 	public MyPanel() {   //This is the constructor... this code runs first to initialize
-		
+
 		if (INNER_CELL_SIZE + (new Random()).nextInt(1) < 1) {	//Use of "random" to prevent unwanted Eclipse warning
 			throw new RuntimeException("INNER_CELL_SIZE must be positive!");
 		}
@@ -89,8 +89,8 @@ public class MyPanel extends JPanel {
 			g.drawLine(x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)), y1 + GRID_Y, x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)), y1 + GRID_Y + ((INNER_CELL_SIZE + 1) * (TOTAL_ROWS )));
 		}
 
-		
-		
+
+
 		//Paint cell colors
 		for (int x = 0; x < TOTAL_COLUMNS; x++) {
 			for (int y = 0; y < TOTAL_ROWS; y++) {
@@ -108,7 +108,7 @@ public class MyPanel extends JPanel {
 		int y1 = myInsets.top;
 		x = x - x1 - GRID_X;
 		y = y - y1 - GRID_Y;
-		
+
 		if (x < 0) {   //To the left of the grid
 			return -1;
 		}
@@ -118,17 +118,17 @@ public class MyPanel extends JPanel {
 		if ((x % (INNER_CELL_SIZE + 1) == 0) || (y % (INNER_CELL_SIZE + 1) == 0)) {   //Coordinate is at an edge; not inside a cell
 			return -1;
 		}
-		
+
 		x = x / (INNER_CELL_SIZE + 1);
 		y = y / (INNER_CELL_SIZE + 1);
-		
+
 		if (x == 0 && y == TOTAL_ROWS-1 ) {    //The lower left extra cell
 			return x;
 		}
 		if (x < 0 || x > TOTAL_COLUMNS - 1 || y < 0 || y > TOTAL_ROWS - 1) {   //Outside the rest of the grid
 			return -1;
 		}
-//		
+		//		
 		return x;
 	}
 	public int getGridY(int x, int y) {
