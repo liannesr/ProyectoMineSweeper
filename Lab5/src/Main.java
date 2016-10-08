@@ -7,7 +7,7 @@ public class Main {
 		myFrame.setResizable(false);// Impedir que usuario habra la pantalla
 		
 		
-		myFrame.setSize(400, 400);
+		myFrame.setSize(325, 350);
 
 		MyPanel myPanel = new MyPanel();
 		myFrame.add(myPanel);

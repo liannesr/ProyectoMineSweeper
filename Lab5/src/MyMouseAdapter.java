@@ -94,7 +94,7 @@ public class MyMouseAdapter extends MouseAdapter {
 //							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
 //							myPanel.repaint();
 							
-							Color newColor =Color.BLACK;
+							Color newColor = Color.BLACK;
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							System.out.println("BOMBA");
 							myPanel.repaint();
@@ -108,7 +108,13 @@ public class MyMouseAdapter extends MouseAdapter {
 							Color newColor =Color.LIGHT_GRAY;
 							myPanel.colorArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = newColor;
 							
-							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
+							//----------added
+//							System.out.println(MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY));
+							int number = MineSweeperLogic.squareProperty(myPanel.mouseDownGridX, myPanel.mouseDownGridY);
+							myPanel.numbersArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY] = number;
+							System.out.println(myPanel.numbersArray[myPanel.mouseDownGridX][myPanel.mouseDownGridY]);
+							//----------added
+							
 							myPanel.repaint();
 						}
 							

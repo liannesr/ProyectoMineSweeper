@@ -58,8 +58,10 @@ public class MyPanel extends JPanel {
 				}
 				//--------------- added
 			}
-		}
+		} 
 	}
+	
+	
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
@@ -77,8 +79,8 @@ public class MyPanel extends JPanel {
 		g.setColor(darkBlue);
 		g.fillRect(x1, y1, width + 1, height + 1);
 
-		//Draw the grid minus the bottom row (which has only one cell)
-		//By default, the grid will be 10x10 (see above: TOTAL_COLUMNS and TOTAL_ROWS) 
+		//Draw the grid minus the bottom row (which has only one cell). Now not happening
+		//By default, the grid will be 10x10 (see above: TOTAL_COLUMNS and TOTAL_ROWS). Now the grid is 9x9 following game standards.
 		g.setColor(Color.BLACK);
 		for (int y = 0; y <= TOTAL_ROWS ; y++) {//--------------->changed minus so to paint row 9
 			g.drawLine(x1 + GRID_X, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)), x1 + GRID_X + ((INNER_CELL_SIZE + 1) * TOTAL_COLUMNS), y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)));
@@ -95,11 +97,24 @@ public class MyPanel extends JPanel {
 				if ((x == 0) || (y != TOTAL_ROWS)) {
 					Color c = colorArray[x][y];
 					g.setColor(c);
-					g.fillRect(x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1, y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 1, INNER_CELL_SIZE, INNER_CELL_SIZE);
+					g.fillRect((x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 1), (y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 1), INNER_CELL_SIZE, INNER_CELL_SIZE);
+				
+					//-----------added
+					if (numbersArray[x][y] == 0){
+						//Do Nothing
+					}
+					else{
+					g.setColor(Color.RED);
+					//need to change values of (x,y) of drawString. Too Long but it works for now.
+					g.drawString(String.valueOf(numbersArray[x][y]), (x1 + GRID_X + (x * (INNER_CELL_SIZE + 1)) + 11), (y1 + GRID_Y + (y * (INNER_CELL_SIZE + 1)) + 11));
+					}
+					//-----------added
 				}
 			}
 		}
 	}
+	
+	
 	public int getGridX(int x, int y) {
 		Insets myInsets = getInsets();
 		int x1 = myInsets.left;
@@ -126,9 +141,11 @@ public class MyPanel extends JPanel {
 		if (x < 0 || x > TOTAL_COLUMNS - 1 || y < 0 || y > TOTAL_ROWS - 1) {   //Outside the rest of the grid
 			return -1;
 		}
-//		
+		
 		return x;
 	}
+	
+	
 	public int getGridY(int x, int y) {
 		Insets myInsets = getInsets();
 		int x1 = myInsets.left;
@@ -156,4 +173,4 @@ public class MyPanel extends JPanel {
 	}
 }
 
-//Nothing changed
+
